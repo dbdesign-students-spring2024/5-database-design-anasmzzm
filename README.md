@@ -78,28 +78,26 @@ The primary key is section_id which uses course_id and professor-id as foreign k
 
 This table uses foreign keys student_id and section_id to keep track of what sections and classes each student is taking.
 
+#### Readings
+| reading_id | section_id | relevant_reading   |
+|------------|------------|--------------------|
+| 1          | 1          | Deumlich Chapter 3 |
+| 2          | 3          | Loopin Chapter 3 |
+| 3          | 1          | Bach Chapter 14 |
+| ...        | ...        | ...                |
+
+The primary key is reading_id with section id and assignment as a foreign key. This table provides information on relevant readings within the class. A seperate table is necessary in case the reading isn't specific to an assignment.
 
 #### Assignments
 
-| assignment_id | course_id | section_id | assignment_topic   | due_date |
-|---------------|-----------|------------|--------------------|----------|
-| 1             | 1         | 1          | Data normalization | 23.02.21 |
-| 2             | 4         | 2          | Descartes Key Points | 18.11.21 |
-| 3             | 2         | 1          | Python and pandas  | 15.03.21 |
-| ...           | ...       | ...        | ...                | ...      |
+| assignment_id | course_id | section_id | reading_id | assignment_topic   | due_date |
+|---------------|-----------|------------|------------|--------------------|----------|
+| 1             | 1         | 1          | 1          | Data normalization | 23.02.21 |
+| 2             | 4         | 2          | 2          | Descartes Key Points | 18.11.21|
+| 3             | 2         | 1          | 3          | Python and pandas  | 15.03.21 |
+| ...           | ...       | ...        | ...        | ...                | ...      |
 
 The primary key is assignment_id which uses course-id and section_id as foreign keys. The table will tell us information about the course, course section, assignment topic, and the due date of the assignment. Each assignment is a unique entity with attributes (assignment_id, course_id, section_id, assignment_topic, due_date) dependent solely on the assignment entity.
-
-#### Readings
-
-| reading_id | course_id | section_id | assignment_id | relevant_reading   |
-|------------|-----------|------------|---------------|--------------------|
-| 1          | 1         | 1          | 1             | Deumlich Chapter 3 |
-| 2          | 1         | 3          | 1             | Loopin Chapter 3 |
-| 3          | 5         | 1          | 3             | Bach Chapter 14 |
-| ...        | ...       | ...        | ...           | ...                |
-
-The primary key is reading_id with assignment_id as a foreign key. This table provides information on relevant readings within the class. A seperate table is necessary in case the reading isn't specific to an assignment.
 
 #### Grades
 
@@ -115,3 +113,4 @@ The primary key is reading_id with assignment_id as a foreign key. This table pr
 The primary key is student_id and assignment_id is the foreign key. The table allows us to input grades specific to each student per assignment.
 
 ## Entity-Relationship Diagram
+![Alt text](images/er_diagram.png)
