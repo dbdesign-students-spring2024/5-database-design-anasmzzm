@@ -29,10 +29,10 @@ In order to get this table 4NF-Compliant, we must break it down into multiple ta
 #### Students
 | student_id | student_name  |
 |------------|---------------|
-| 1          | Lenore Day    |
-| 2          | Lonny Miranda |
-| 4          | Ezekiel Sloan |
-| 7          | Janell Dalton |
+| 1          | John Doe      |
+| 2          | Peter Griffen |
+| 3          | James Bond    |
+| 4          | Albert Smith  |
 | ...        | ...           |
 
 The primary key is student_id and identifies the name of the student. Each record represents a unique student with attributes solely dependent on the student entity.
@@ -40,10 +40,10 @@ The primary key is student_id and identifies the name of the student. Each recor
 #### Professors
 | professor_id | professor_name | professor_email    |
 |--------------|----------------|--------------------|
-| 1            | Melvin         | l.melvin@foo.edu   |
-| 2            | Logston        | e.logston@foo.edu  |
-| 3            | Nevarez        | i.nevarez@foo.edu  |
-| ...          | ...            | ...                |
+| 1            | Hawking         | s.hawking@foo.edu   |
+| 2            | Armstrong       | n.armstrong@foo.edu  |
+| 3            | Einstein        | a.einstein@foo.edu  |
+| ...          | ...             | ...                |
 
 The primary key is professor_id which gives information on the professor's name and contact information. Each record corresponds to a single professor with attributes dependent solely on the professor entity. 
 
@@ -51,10 +51,10 @@ The primary key is professor_id which gives information on the professor's name 
 | course_id | course_name     |
 |-----------|-----------------|
 | 1         | Database Design |
-| 2         | Web Programming |
-| 3         | English 101     |
-| 4         | CS 101          |
-| 5         | Art History     |
+| 2         | Intro to CS |
+| 3         | Spanish 1     |
+| 4         | Text and Ideas          |
+| 5         | Piano     |
 
 The primary key is course_id which identifies the specific course being accessed. Each course as a unique entity with attributes dependent solely on the course.
 
@@ -73,20 +73,20 @@ The primary key is section_id which uses course_id and professor-id as foreign k
 | assignment_id | course_id | section_id | assignment_topic   | due_date |
 |---------------|-----------|------------|--------------------|----------|
 | 1             | 1         | 1          | Data normalization | 23.02.21 |
-| 2             | 2         | 2          | Single table queries | 18.11.21 |
-| 3             | 2         | 2          | Python and pandas  | 05.05.21 |
+| 2             | 4         | 2          | Descartes Key Points | 18.11.21 |
+| 3             | 2         | 1          | Python and pandas  | 15.03.21 |
 | ...           | ...       | ...        | ...                | ...      |
 
 The primary key is assignment_id which uses course-id and section_id as foreign keys. The table will tell us information about the course, course section, assignment topic, and the due date of the assignment. Each assignment is a unique entity with attributes (assignment_id, course_id, section_id, assignment_topic, due_date) dependent solely on the assignment entity.
 
 #### Readings
 
-| reading_id | assignment_id | relevant_reading   |
-|------------|---------------|--------------------|
-| 1          | 1             | Deumlich Chapter 3 |
-| 2          | 2             | Dümmlers Chapter 11 |
-| 3          | 3             | Dümmlers Chapter 14 |
-| ...        | ...           | ...                |
+| reading_id | course_id | section_id | assignment_id | relevant_reading   |
+|------------|-----------|------------|---------------|--------------------|
+| 1          | 1         | 1          | 1             | Deumlich Chapter 3 |
+| 2          | 1         | 3          | 1             | Loopin Chapter 3 |
+| 3          | 5         | 1          | 3             | Bach Chapter 14 |
+| ...        | ...       | ...        | ...           | ...                |
 
 The primary key is reading_id with assignment_id as a foreign key. This table provides information on relevant readings within the class. A seperate table is necessary in case the reading isn't specific to an assignment.
 
@@ -94,11 +94,11 @@ The primary key is reading_id with assignment_id as a foreign key. This table pr
 
 | student_id | assignment_id | grade |
 |------------|---------------|-------|
-| 1          | 1             | 80    |
-| 7          | 2             | 25    |
-| 4          | 1             | 75    |
-| 2          | 5             | 92    |
-| 2          | 4             | 65    |
+| 1          | 1             | 90    |
+| 5          | 2             | 78    |
+| 4          | 1             | 83    |
+| 2          | 12             | 90    |
+| 2          | 2             | 55    |
 | ...        | ...           | ...   |
 
 The primary key is student_id and assignment_id is the foreign key. The table allows us to input grades specific to each student per assignment.
