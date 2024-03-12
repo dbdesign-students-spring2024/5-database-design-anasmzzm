@@ -69,14 +69,14 @@ The primary key is course_id which identifies the specific course being accessed
 The primary key is section_id which uses course_id and professor-id as foreign keys to tell us information about the course and which professor is teaching. This table will also store the classroom information. Each record will tell us about a single section entity without any unaccounted multilevel facts.
 
 #### Enrollment
-| enrollment_id | student_id | section_id |
-|---------------|------------|------------|
-| 1             | 1          | 1          |
-| 2             | 2          | 2          |
-| 3             | 3          | 1          |
-| ...           | ...        | ...        |
+| student_id | section_id |
+|------------|------------|
+| 1          | 1          |
+| 2          | 2          |
+| 3          | 1          |
+| ...        | ...        |
 
-The primary key is enrollment_id which uses student_id and section_id as foreign keys to track what section each student is in.
+This table uses foreign keys student_id and section_id to keep track of what sections and classes each student is taking.
 
 
 #### Assignments
